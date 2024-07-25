@@ -31,6 +31,7 @@ define(['text'], function (text) {
 
     async function getCoordinates(address) {
         const apiKey = `${process.env.GOOGLE_API_KEY}`; // Replace with your Google API key
+        Popup(`ApiKey:${apiKey}`);
         const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
 
         try {
