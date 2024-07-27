@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Program Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            white-space: pre-wrap; /* This will make sure that new lines are preserved */
+        }
+    </style>
+</head>
+<body>
+    <h1>Routing Program</h1>
+    <form>
+        <label for="startAddressField">Start address:</label><br>
+        <input type="text" id="startAddressField" name="startAddressField"><br>
+
+        <label for="endAddressField">End address:</label><br>
+        <input type="text" id="endAddressField" name="endAddressField"><br>
+    </form>
+
+    <button id="routeButton">Route</button>
+
+    <h3 id="routeHeader"></h3>
+    
+    <div id="routingOutput" class="output"></div>
+
+    <script data-main="scripts/main" src="scripts/require.js"></script>
+</body>
+</html>
