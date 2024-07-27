@@ -14,10 +14,11 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Inject API Key
-      run: echo "const apiKey = '${{ secrets.API_KEY }}';" >> ./path-to-your-js-file.js
+      run: |
+        echo "const apiKey = '${{ secrets.API_KEY }}';" > ./config.js
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
+        publish_dir: . # Change this to your actual directory if necessary
