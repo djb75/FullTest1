@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy static site to GitHub Pages
 
 on:
   push:
@@ -6,29 +6,18 @@ on:
       - main # Change this to your default branch if it's not 'main'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16' # Use the appropriate Node.js version
-
-    - name: Install dependencies
-      run: npm install
-
     - name: Inject API Key
-      run: echo "API_KEY=${{ secrets.API_KEY }}" >> .env
-
-    - name: Build project
-      run: npm run build
+      run: echo "const apiKey = '${{ secrets.API_KEY }}';" >> ./path-to-your-js-file.js
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: .
